@@ -1,0 +1,21 @@
+server:
+  port: 8083
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        heart-beat-interval: 5000
+        heart-beat-timeout: 20000
+        namespace: dev
+        register-enabled: true
+        username: nacos
+        password: nacos
+#        group: TEXT_GROUP
+#      config:
+#        server-addr: localhost:8848
+#        file-extension: json
+#        namespace: dev
+#        group: TEXT_GROUP
+#        enable-remote-sync-config: true
+#        refresh-enabled: true

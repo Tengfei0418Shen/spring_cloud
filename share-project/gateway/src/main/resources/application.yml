@@ -1,0 +1,27 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: getway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: user-service
+          order: 1
+          predicates:
+            - Path=/user/**
+          uri: http://localhost:8082
+        - id: content-service
+          order: 1
+          predicates:
+            - Path=/share/**
+          uri: http://localhost:8081
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      username: nacos
+      password: nacos
